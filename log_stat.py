@@ -22,8 +22,8 @@ def display_result(work_time, send_time, backends, incomplete):
 		print ("\nBackend group: {}".format(gr))
 		print ("    Total backends involved: {}".format(len(backends[gr])))
 
-		for b in sorted(backends[gr]):
-			print ("    {}".format(b))
+		for n, b in enumerate(sorted(backends[gr]), 1):
+			print ("    {}. {}".format(n, b))
 			print ("        Requests: {}".format(backends[gr][b]['requests']))
 
 			if (len(backends[gr][b]['errors'])):
