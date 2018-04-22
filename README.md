@@ -25,14 +25,16 @@ Requests with incomplete dataset: 0
 
 Backend group: 0
     Total backends involved: 2
-    backend0-001.yandex.ru:1963/search?
+    1. backend0-001.yandex.ru:1963/search?
         Requests: 1
+        Total errors: 1 (100%)
         Errors:
             Request Timeout: 1
-    backend0-002.yandex.ru:1126/search?
+    2. backend0-002.yandex.ru:1126/search?
         Requests: 1
 
 Backend group: 1
     Total backends involved: 1
-    backend1-001.yandex.ru:1085/search?
-        Requests: 1```
+    1. backend1-001.yandex.ru:1085/search?
+        Requests: 1
+```

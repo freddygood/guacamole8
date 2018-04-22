@@ -28,6 +28,8 @@ def display_result(work_time, send_time, backends, incomplete):
 
 			if (len(backends[gr][b]['errors'])):
 				print "        Errors:"
+				err_percentage = 100 * int(backends[gr][b]['errors_num']) / int(backends[gr][b]['requests'])
+				print ("        Total errors: {} ({}%)".format(backends[gr][b]['errors_num'], err_percentage))
 
 				for e in sorted(backends[gr][b]['errors']):
 					print "            {}: {}".format(e, backends[gr][b]['errors'][e])
@@ -89,7 +91,7 @@ def main_loop():
 					backends[backend_id] = {}
 
 				if (backend_param not in backends[backend_id]):
-					backends[backend_id][backend_param] = { 'requests': '1', 'errors': {} }
+					backends[backend_id][backend_param] = { 'requests': '1', 'errors_num': '0', 'errors': {} }
 				else:
 					backends[backend_id][backend_param]['requests'] = int(backends[backend_id][backend_param]['requests']) + 1
 
@@ -109,6 +111,8 @@ def main_loop():
 				requests[request_id]['backends'][backend_id]['state'] = 'Error'
 
 				current_backend = requests[request_id]['backends'][backend_id]['name']
+
+				backends[backend_id][current_backend]['errors_num'] = int(backends[backend_id][current_backend]['errors_num']) + 1
 
 				if (backend_param not in backends[backend_id][current_backend]['errors']):
 					backends[backend_id][current_backend]['errors'][backend_param] = 1
