@@ -27,12 +27,12 @@ def display_result(work_time, send_time, backends, incomplete):
 			print ("        Requests: {}".format(backends[gr][b]['requests']))
 
 			if (len(backends[gr][b]['errors'])):
-				print "        Errors:"
 				err_percentage = 100 * int(backends[gr][b]['errors_num']) / int(backends[gr][b]['requests'])
 				print ("        Total errors: {} ({}%)".format(backends[gr][b]['errors_num'], err_percentage))
+				print ("        Errors:")
 
 				for e in sorted(backends[gr][b]['errors']):
-					print "            {}: {}".format(e, backends[gr][b]['errors'][e])
+					print ("            {}: {}".format(e, backends[gr][b]['errors'][e]))
 
 def main_loop():
 
