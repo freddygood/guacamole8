@@ -2,6 +2,8 @@
 
 ## prepare
 
+The script requires numpy, you can install it with the command
+
 ```
 pip install -r pip-requirements.txt
 ```
